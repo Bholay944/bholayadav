@@ -3,171 +3,439 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BholaYadav.com is currently under construction. Coming soon.">
-  <title>BholaYadav.com — Coming Soon</title>
+  <meta name="description" content="BholaYadav.com is launching on September 30, 2026 at 12:00 AM Nepal Time.">
+  <meta name="theme-color" content="#06111f">
+  <title>BholaYadav.com — Launching Soon</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #02060c;
+      --card: rgba(255,255,255,.055);
+      --border: rgba(255,255,255,.11);
+      --text: #fff;
+      --muted: #91a1b5;
+      --blue: #1687ff;
+      --cyan: #62b7ff;
+      --orange: #ff9d4d;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      overflow-x: hidden;
       font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
+      color: var(--text);
       background:
-        radial-gradient(circle at 50% 35%, #102a4d 0%, #07111f 42%, #02060c 100%);
+        radial-gradient(circle at 50% 15%, #102f55 0%, #07111f 34%, #02060c 78%);
     }
 
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .14;
+      pointer-events: none;
+      animation: float 9s ease-in-out infinite alternate;
+    }
+
+    body::before { background: #1687ff; top: 5%; left: -100px; }
+    body::after { background: #ff7b39; right: -120px; bottom: 5%; animation-delay: -4s; }
+
     .page {
-      width: 100%;
-      padding: 30px;
+      width: min(980px, 100%);
+      min-height: 100vh;
+      margin: auto;
+      padding: 42px 22px 85px;
       text-align: center;
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 64px;
-      height: 64px;
-      margin-bottom: 32px;
-      border-radius: 18px;
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 22px;
       background: linear-gradient(135deg, #1687ff, #0751a1);
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 22px;
+      font-weight: 800;
       letter-spacing: -1px;
-      box-shadow: 0 15px 45px rgba(22, 135, 255, 0.25);
+      box-shadow: 0 18px 55px rgba(22,135,255,.28);
+      animation: pulse 3s ease-in-out infinite;
     }
 
     .construction {
-      display: inline-block;
-      margin-bottom: 22px;
-      padding: 8px 15px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 50px;
-      color: #a9bdd3;
-      background: rgba(255, 255, 255, 0.04);
-      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #b8c8da;
+      background: rgba(255,255,255,.045);
+      font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #42e58a;
+      box-shadow: 0 0 14px #42e58a;
+      animation: blink 1.5s infinite;
+    }
+
     h1 {
-      font-size: clamp(44px, 8vw, 82px);
-      line-height: 1;
+      font-size: clamp(46px, 8vw, 84px);
+      line-height: .98;
       letter-spacing: -4px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h1 span {
-      background: linear-gradient(90deg, #ffffff, #62b7ff);
+      background: linear-gradient(90deg, #fff, #62b7ff, #fff);
+      background-size: 180% auto;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      animation: shine 4s linear infinite;
     }
 
     .message {
-      max-width: 520px;
-      margin: 0 auto;
-      color: #91a1b5;
+      max-width: 610px;
+      color: var(--muted);
       font-size: 17px;
       line-height: 1.7;
+      margin-bottom: 24px;
     }
 
-    .loader {
-      width: 180px;
-      height: 4px;
-      margin: 35px auto 0;
-      overflow: hidden;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.08);
+    .launch-info {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 28px;
+      color: #d7e3ef;
+      font-size: 14px;
     }
 
-    .loader::before {
-      content: "";
+    .launch-info strong { color: #fff; }
+
+    .info-pill {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .countdown {
+      width: min(760px, 100%);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 0 auto 24px;
+    }
+
+    .time-box {
+      padding: 22px 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+      backdrop-filter: blur(12px);
+    }
+
+    .number {
       display: block;
-      width: 55%;
-      height: 100%;
-      border-radius: 20px;
-      background: linear-gradient(90deg, #1687ff, #ff9d4d);
-      animation: loading 2s ease-in-out infinite;
+      font-size: clamp(30px, 6vw, 52px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      font-variant-numeric: tabular-nums;
     }
 
-    @keyframes loading {
-      0% { transform: translateX(-110%); }
-      50% { transform: translateX(100%); }
-      100% { transform: translateX(280%); }
-    }
-
-    .coming {
-      margin-top: 22px;
-      color: #64758a;
-      font-size: 12px;
-      letter-spacing: 3px;
+    .label {
+      display: block;
+      margin-top: 5px;
+      color: #708399;
+      font-size: 10px;
+      letter-spacing: 2px;
       text-transform: uppercase;
+    }
+
+    .progress-wrap {
+      width: min(760px, 100%);
+      margin-bottom: 25px;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: #6f8196;
+      font-size: 11px;
+    }
+
+    .progress-track {
+      height: 6px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--orange));
+      box-shadow: 0 0 18px rgba(98,183,255,.45);
+      transition: width .8s ease;
+    }
+
+    .local-time {
+      color: #718399;
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+
+    .local-time strong { color: #cbd8e6; }
+
+    .features {
+      width: min(760px, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .feature {
+      padding: 18px 12px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .feature-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .feature p {
+      color: #6f8196;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
     .footer {
       position: fixed;
-      bottom: 24px;
+      bottom: 18px;
       left: 0;
       width: 100%;
       text-align: center;
       color: #4e5d6f;
       font-size: 11px;
+      z-index: 3;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        letter-spacing: -2px;
-      }
+    .footer a {
+      color: #667b92;
+      text-decoration: none;
+    }
 
-      .message {
-        font-size: 15px;
-      }
+    @keyframes pulse {
+      0%,100% { transform: translateY(0); box-shadow: 0 18px 55px rgba(22,135,255,.28); }
+      50% { transform: translateY(-5px); box-shadow: 0 24px 65px rgba(22,135,255,.42); }
+    }
 
-      .logo {
-        width: 56px;
-        height: 56px;
-      }
+    @keyframes blink {
+      50% { opacity: .35; }
+    }
+
+    @keyframes shine {
+      to { background-position: 180% center; }
+    }
+
+    @keyframes float {
+      to { transform: translate3d(0, 35px, 0) scale(1.08); }
+    }
+
+    @media (max-width: 650px) {
+      .page { padding: 30px 16px 75px; }
+      h1 { letter-spacing: -2.5px; }
+      .message { font-size: 15px; }
+      .countdown { gap: 7px; }
+      .time-box { padding: 17px 6px 14px; border-radius: 14px; }
+      .features { grid-template-columns: 1fr; }
+      .feature { display: flex; text-align: left; align-items: center; gap: 12px; }
+      .feature-icon { margin: 0; }
+    }
+
+    @media (max-width: 390px) {
+      .number { font-size: 27px; }
+      .label { font-size: 8px; letter-spacing: 1px; }
+      .logo { width: 62px; height: 62px; }
     }
   </style>
 </head>
 
 <body>
-
   <main class="page">
+    <div class="logo" aria-label="Bhola Yadav">BY</div>
 
-    <div class="logo">BY</div>
-
-    <div class="construction">Under Construction</div>
+    <div class="construction">
+      <span class="dot"></span>
+      Website Under Construction
+    </div>
 
     <h1>Coming <span>Soon.</span></h1>
 
     <p class="message">
       We're building something new for you.
       <br>
-      BholaYadav.com will be live soon.
+      <strong>BholaYadav.com</strong> will be live very soon.
     </p>
 
-    <div class="loader"></div>
+    <div class="launch-info">
+      <div class="info-pill">🚀 Launch: <strong>September 30, 2026</strong></div>
+      <div class="info-pill">🕛 <strong>12:00 AM</strong> Nepal Time</div>
+    </div>
 
-    <div class="coming">Stay tuned</div>
+    <section class="countdown" aria-label="Countdown to website launch">
+      <div class="time-box"><span class="number" id="days">10</span><span class="label">Days</span></div>
+      <div class="time-box"><span class="number" id="hours">00</span><span class="label">Hours</span></div>
+      <div class="time-box"><span class="number" id="minutes">00</span><span class="label">Minutes</span></div>
+      <div class="time-box"><span class="number" id="seconds">00</span><span class="label">Seconds</span></div>
+    </section>
 
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span>Preparing for launch</span>
+        <span id="progressText">Almost there</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <div class="local-time">
+      Current Nepal time: <strong id="nepalTime">--:--:--</strong> ·
+      <span>Asia/Kathmandu</span>
+    </div>
+
+    <section class="features" aria-label="Website features">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <div>
+          <h3>Fast & Modern</h3>
+          <p>A clean, responsive experience designed for desktop and mobile.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <h3>Secure</h3>
+          <p>Built with HTTPS and a secure production deployment.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <div>
+          <h3>Something New</h3>
+          <p>New content and features are being prepared for launch.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div class="footer">
-    © 2026 BholaYadav.com
-  </div>
+  <footer class="footer">
+    © 2026 BholaYadav.com · All rights reserved
+  </footer>
 
+  <script>
+    // ==========================================================
+    // LAUNCH SETTINGS
+    // Change only this date if you want a different launch time.
+    // Nepal Time (Asia/Kathmandu) = UTC+05:45
+    // ==========================================================
+    const launchDate = new Date("2026-09-30T00:00:00+05:45").getTime();
+
+    // Approximate starting point for the progress indicator:
+    // September 20, 2026 00:00 Nepal Time
+    const startDate = new Date("2026-09-20T00:00:00+05:45").getTime();
+
+    const $ = (id) => document.getElementById(id);
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = launchDate - now;
+
+      if (distance <= 0) {
+        $("days").textContent = "00";
+        $("hours").textContent = "00";
+        $("minutes").textContent = "00";
+        $("seconds").textContent = "00";
+        $("progressText").textContent = "We're Live!";
+        $("progressBar").style.width = "100%";
+        document.querySelector(".construction").innerHTML =
+          '<span class="dot"></span> Website Is Live';
+        document.querySelector("h1").innerHTML = 'We Are <span>Live!</span>';
+        document.querySelector(".message").innerHTML =
+          'Welcome to <strong>BholaYadav.com</strong>.<br>Thanks for waiting!';
+        return;
+      }
+
+      const days = Math.floor(distance / 86400000);
+      const hours = Math.floor((distance % 86400000) / 3600000);
+      const minutes = Math.floor((distance % 3600000) / 60000);
+      const seconds = Math.floor((distance % 60000) / 1000);
+
+      $("days").textContent = String(days).padStart(2, "0");
+      $("hours").textContent = String(hours).padStart(2, "0");
+      $("minutes").textContent = String(minutes).padStart(2, "0");
+      $("seconds").textContent = String(seconds).padStart(2, "0");
+
+      const total = launchDate - startDate;
+      const elapsed = Math.max(0, Math.min(total, now - startDate));
+      const progress = (elapsed / total) * 100;
+      $("progressBar").style.width = progress.toFixed(2) + "%";
+      $("progressText").textContent = Math.round(progress) + "% ready";
+    }
+
+    function updateNepalTime() {
+      $("nepalTime").textContent = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Kathmandu",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      }).format(new Date());
+    }
+
+    updateCountdown();
+    updateNepalTime();
+    setInterval(updateCountdown, 1000);
+    setInterval(updateNepalTime, 1000);
+  </script>
 </body>
 </html>
